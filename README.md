@@ -129,6 +129,7 @@ Para utilizar o SmartCash no seu dia a dia, siga as instruções simples abaixo:
 | Motor de processamento JavaScript, listeners de formulário e reatividade visual | Concluído 🚀 |
 | Persistência estável com a API LocalStorage do navegador | Concluído 🚀 |
 | Ciclo CRUD com delegação de eventos para exclusão reativa de itens | Concluído 🚀 |
+| Disponível em [text](https://github.com/users/Yslander/projects/1)
 
 ## 💎 Práticas Recomendadas de Desenvolvimento
 
