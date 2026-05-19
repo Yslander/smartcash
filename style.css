@@ -1,0 +1,253 @@
+/* 1. Importação da Fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* 2. Reset Geral (Zera as margens padrão do navegador) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding não mude o tamanho final da caixa */
+}
+
+/* 3. Nosso Painel de Variáveis (Cores de Sinalização) */
+:root {
+    --cor-fundo: #f0f2f5;       /* Cinza bem claro para o fundo da página */
+    --cor-card-fundo: #ffffff;  /* Branco puro para destacar as caixas */
+    --cor-texto-padrão: #363f5f;/* Azul escuro/grafite para leitura confortável */
+    --cor-entrada: #12a454;     /* Verde para receitas/saldos positivos */
+    --cor-saida: #e52e4d;       /* Vermelho para despesas/saldos negativos */
+}
+
+/* 4. Estilo do Corpo da Aplicação */
+body {
+    background-color: var(--cor-fundo);
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-texto-padrão);
+}
+
+/* 5. Estilo do Cabeçalho (Topo) */
+header {
+    background-color: #2d3748; /* Azul escuro bem elegante */
+    padding: 2rem 0;           /* Espaçamento interno em cima e embaixo */
+    text-align: center;        /* Centraliza o texto do título */
+}
+
+header h1 {
+    color: #ffffff;            /* Título em branco puro */
+    font-weight: 700;          /* Fonte em negrito bem marcado */
+}
+
+/* 6. Container de Alinhamento Central */
+.container {
+    width: 90%;                /* Ocupa 90% da tela em dispositivos móveis */
+    max-width: 800px;          /* No computador, não passa de 800px */
+    margin: 0 auto;            /* Centraliza o container na tela (esquerda/direita automáticos) */
+    padding: 2rem 0;           /* Espaçamento interno vertical */
+}
+
+/* 7. Alinhamento dos Cards (Grid Flexível) */
+.resumo {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem de linha no celular se faltar espaço */
+    gap: 1.5rem;     /* Cria um espaçamento uniforme entre os cards */
+    margin-top: -4rem; /* Empurra os cards um pouco para cima, invadindo o cabeçalho escuro */
+    margin-bottom: 2rem;
+}
+
+/* 8. Estilo Base de cada Card */
+.card {
+    background-color: var(--cor-card-fundo);
+    flex: 1;              /* Distribui o espaço igualmente entre os cards no desktop */
+    min-width: 220px;     /* No celular, impede que fiquem esmagados, forçando a quebra */
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem; /* Bordas levemente arredondadas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05); /* Sombra bem sutil */
+}
+
+/* Títulos internos dos cards */
+.card h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between; /* Afasta o texto do ícone */
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Valores monetários dentro dos cards */
+.card p {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 3rem;
+}
+
+/* 9. Aplicação das Cores de Sinalização nos Ícones */
+.card.entradas i {
+    color: var(--cor-entrada); /* Ícone de Entrada fica Verde */
+}
+
+.card.saidas i {
+    color: var(--cor-saida);   /* Ícone de Saída fica Vermelho */
+}
+
+/* Destaque especial para o Card de Saldo Total */
+.card.total {
+    background-color: var(--cor-entrada); /* Por padrão, o saldo começa verde (positivo) */
+    color: #ffffff;
+}
+
+.card.total i {
+    color: #ffffff; /* Ícone do saldo total fica branco para contrastar */
+}
+
+/* 10. Container do Formulário */
+.nova-transacao {
+    background-color: var(--cor-card-fundo);
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.nova-transacao h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* 11. Alinhamento dos Campos do Formulário */
+#form-transacao {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha no celular */
+    gap: 1rem;
+    align-items: flex-end; /* Alinha o botão com a base dos inputs */
+}
+
+/* Ajuste de tamanho de cada caixinha de input */
+.grupo-input {
+    flex: 1;
+    min-width: 180px; /* Impede que os campos fiquem esmagados no celular */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo dos Textos de Label (Ex: "Descrição", "Valor") */
+.grupo-input label {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    color: #969cb3; /* Cinza mais suave para não brigar com o input */
+}
+
+/* Estilo das Caixas de Entrada de Dados (Inputs e Select) */
+.grupo-input input, 
+.grupo-input select {
+    padding: 0.75rem;
+    border: 1px solid #dcdce6;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    color: var(--cor-texto-padrão);
+    background-color: #fcfcfc;
+    outline: none; /* Remove aquela borda preta padrão ao clicar */
+    transition: border-color 0.2s; /* Suaviza a mudança de cor da borda */
+}
+
+/* Efeito visual quando o usuário clica para digitar */
+.grupo-input input:focus, 
+.grupo-input select:focus {
+    border-color: #2d3748; /* Borda fica escura indicando foco */
+}
+
+/* 12. Estilo do Botão de Envio */
+#form-transacao button {
+    padding: 0.75rem 1.5rem;
+    background-color: #2d3748; /* Casando com a cor do cabeçalho */
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: filter 0.2s;
+    min-width: 150px;
+    height: 43px; /* Alinha perfeitamente com a altura dos inputs */
+}
+
+/* Efeito de hover (passar o mouse) no botão */
+#form-transacao button:hover {
+    filter: brightness(1.3  ); /* Deixa o botão ligeiramente mais claro */
+}
+
+/* 13. Container Geral do Extrato */
+.extrato {
+    background-color: var(--cor-card-fundo);
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.extrato h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* 14. Configuração da Lista (Removendo as bolinhas padrão) */
+#lista-transacoes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espaço entre cada linha de transação */
+}
+
+/* 15. Estilo de cada Linha de Transação (AJUSTADO PARA ALINHAMENTO) */
+.item-transacao {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    border-left: 5px solid transparent; 
+}
+
+/* Distribuição de espaço em colunas dentro da linha */
+.item-transacao span:nth-child(1) {
+    flex: 3; /* A descrição ganha a maior parte do espaço à esquerda */
+    text-align: left;
+}
+
+.item-transacao span:nth-child(2) {
+    flex: 2; /* O valor ganha um espaço fixado, alinhando verticalmente com o de baixo */
+    text-align: right;
+    margin-right: 1.5rem; /* Cria um respiro antes de chegar na lixeira */
+}/* 16. As Cores de Sinalização Dinâmica (Verde e Vermelho) */
+.item-transacao.positivo {
+    border-left-color: var(--cor-entrada); /* Borda esquerda fica Verde */
+}
+.item-transacao.positivo span:nth-child(2) {
+    color: var(--cor-entrada);            /* O valor em dinheiro fica Verde */
+    font-weight: 500;
+}
+
+.item-transacao.negativo {
+    border-left-color: var(--cor-saida);   /* Borda esquerda fica Vermelha */
+}
+.item-transacao.negativo span:nth-child(2) {
+    color: var(--cor-saida);              /* O valor em dinheiro fica Vermelho */
+    font-weight: 500;
+}
+
+/* 17. O Botão de Excluir (Lixeira) */
+.btn-excluir {
+    background: transparent;
+    border: none;
+    color: #969cb3; /* Cinza discreto por padrão */
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+    padding: 0.25rem;
+}
+
+/* Efeito Hover na Lixeira */
+.btn-excluir:hover {
+    color: var(--cor-saida); /* Ao passar o mouse, a lixeira acende em Vermelho Alerta */
+}

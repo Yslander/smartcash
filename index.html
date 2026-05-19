@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCash - Controle Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><i class="fa-solid fa-wallet"></i> SmartCash</h1>
+    </header>
+
+    <main class="container">
+        <section class="resumo">
+            <div class="card entradas">
+                <h3>Entradas <i class="fa-solid fa-circle-arrow-up"></i></h3>
+                <p id="total-entradas">R$ 0,00</p>
+            </div>
+            <div class="card saidas">
+                <h3>Saídas <i class="fa-solid fa-circle-arrow-down"></i></h3>
+                <p id="total-saidas">R$ 0,00</p>
+            </div>
+            <div class="card total">
+                <h3>Saldo Atual <i class="fa-solid fa-sack-dollar"></i></h3>
+                <p id="saldo-total">R$ 0,00</p>
+            </div>
+        </section>
+
+        <section class="nova-transacao">
+            <h2>Nova Transação</h2>
+            <form id="form-transacao">
+                <div class="grupo-input">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" placeholder="Ex: Mercado, Salário..." required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="valor">Valor (R$)</label>
+                    <input type="number" id="valor" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" required>
+                        <option value="+">Entrada</option>
+                        <option value="-">Saída</option>
+                    </select>
+                </div>
+
+                <button type="submit">Adicionar Transação</button>
+            </form>
+        </section>
+
+        <section class="extrato">
+            <h2>Histórico</h2>
+            <ul id="lista-transacoes">
+                <li class="item-transacao positivo">
+                    <span>Salário</span>
+                    <span>R$ 5.000,00</span>
+                    <button class="btn-excluir"><i class="fa-solid fa-trash"></i></button>
+                </li>
+                <li class="item-transacao negativo">
+                    <span>Conta de Luz</span>
+                    <span>- R$ 150,00</span>
+                    <button class="btn-excluir"><i class="fa-solid fa-trash"></i></button>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
