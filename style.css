@@ -80,23 +80,35 @@ header h1 {
     line-height: 3rem;
 }
 
-/* 9. Aplicação das Cores de Sinalização nos Ícones */
+/* 9. Aplicação das Cores de Sinalização nos Cards do Topo */
+.card.entradas {
+    background-color: #e6f7ee; /* Fundo verde bem clarinho/pastel */
+}
+.card.entradas h3, .card.entradas p {
+    color: var(--cor-entrada); /* Força o texto e números a ficarem verdes */
+}
 .card.entradas i {
-    color: var(--cor-entrada); /* Ícone de Entrada fica Verde */
+    color: var(--cor-entrada); 
 }
 
+.card.saidas {
+    background-color: #fdebee; /* Fundo vermelho bem clarinho/pastel */
+}
+.card.saidas h3, .card.saidas p {
+    color: var(--cor-saida); /* Força o texto e números a ficarem vermelhos */
+}
 .card.saidas i {
-    color: var(--cor-saida);   /* Ícone de Saída fica Vermelho */
+    color: var(--cor-saida);   
 }
 
-/* Destaque especial para o Card de Saldo Total */
+/* O Card de Saldo Atual agora começará neutro e receberá a cor via JavaScript */
 .card.total {
-    background-color: var(--cor-entrada); /* Por padrão, o saldo começa verde (positivo) */
+    background-color: #2d3748; /* Cor neutra inicial (azul escuro) */
     color: #ffffff;
+    transition: background-color 0.3s; /* Suaviza a transição de cor quando mudar */
 }
-
 .card.total i {
-    color: #ffffff; /* Ícone do saldo total fica branco para contrastar */
+    color: #ffffff; 
 }
 
 /* 10. Container do Formulário */
@@ -219,20 +231,22 @@ header h1 {
     flex: 2; /* O valor ganha um espaço fixado, alinhando verticalmente com o de baixo */
     text-align: right;
     margin-right: 1.5rem; /* Cria um respiro antes de chegar na lixeira */
-}/* 16. As Cores de Sinalização Dinâmica (Verde e Vermelho) */
+}/* 16. As Cores de Sinalização Dinâmica (Verde e Vermelho com Fundo Claro) */
 .item-transacao.positivo {
-    border-left-color: var(--cor-entrada); /* Borda esquerda fica Verde */
+    border-left-color: var(--cor-entrada); 
+    background-color: #e6f7ee; /* Verde bem clarinho/pastel para o fundo */
 }
 .item-transacao.positivo span:nth-child(2) {
-    color: var(--cor-entrada);            /* O valor em dinheiro fica Verde */
+    color: var(--cor-entrada);            
     font-weight: 500;
 }
 
 .item-transacao.negativo {
-    border-left-color: var(--cor-saida);   /* Borda esquerda fica Vermelha */
+    border-left-color: var(--cor-saida);   
+    background-color: #fdebee; /* Vermelho bem clarinho/pastel para o fundo */
 }
 .item-transacao.negativo span:nth-child(2) {
-    color: var(--cor-saida);              /* O valor em dinheiro fica Vermelho */
+    color: var(--cor-saida);              
     font-weight: 500;
 }
 
